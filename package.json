@@ -1,0 +1,76 @@
+{
+  "name": "mynth-account",
+  "version": "1.0.0",
+  "description": "Cardano smart contracts for Mynth Accounts",
+  "engines": {
+    "node": "^18.17.0"
+  },
+  "type": "module",
+  "scripts": {
+    "build": "concurrently \"npx tsc\" \"aiken build\"",
+    "prettier": "concurrently \"npx prettier -w '**/*.{js,jsx,ts,tsx,json,yml.j2,yml,yaml,.*}'\" \"aiken fmt\" \"taplo format\" \"npx format-md\"",
+    "lint": "concurrently \"npx prettier --check '**/*.{js,jsx,ts,tsx,json,yml.j2,yml,yaml,.*}'\" \"aiken fmt --check\" \"taplo format --check\" \"npx format-md --check\" \"npx eslint . --max-warnings=0\"",
+    "test:aiken": "concurrently \"aiken check\"",
+    "test": "aiken build && npx ava",
+    "docker:build": "docker build -t mynth-account .",
+    "docker:run": "docker run --add-host host.docker.internal:host-gateway -e VAULT_CLI_TOKEN=\"$VAULT_CLI_TOKEN\" -e VAULT_CLI_URL=http://host.docker.internal:8200 -e MONGODB_URI=mongodb://host.docker.internal:27017/webapp mynth-account",
+    "docker:run-distribute": "docker run --add-host host.docker.internal:host-gateway -e VAULT_CLI_TOKEN=\"$VAULT_CLI_TOKEN\" -e VAULT_CLI_URL=http://host.docker.internal:8200 -e MONGODB_URI=mongodb://host.docker.internal:27017/webapp mynth-account npx tsx /app/src/entrypoints/distribute.ts"
+  },
+  "bin": {
+    "accounts": "./bin/accounts"
+  },
+  "dependencies": {
+    "commander": "^11.1.0",
+    "config": "^3.3.9",
+    "decimal.js": "^10.4.3",
+    "enquirer": "^2.4.1",
+    "mynth-helper": "^1.3.13",
+    "p-limit": "^5.0.0",
+    "papr": "^15.0.0",
+    "ts-res": "^1.1.1"
+  },
+  "devDependencies": {
+    "@ianvs/prettier-plugin-sort-imports": "^4.1.0",
+    "@types/config": "^3.3.3",
+    "@types/node": "^20.3.2",
+    "@types/sinon": "^17.0.2",
+    "@typescript-eslint/eslint-plugin": "^6.7.5",
+    "@typescript-eslint/parser": "^6.7.5",
+    "ava": "^5.3.1",
+    "concurrently": "^8.2.0",
+    "eslint": "^8.51.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-import-resolver-node": "^0.3.9",
+    "eslint-plugin-ava": "^14.0.0",
+    "eslint-plugin-import": "^2.28.1",
+    "mockdate": "^3.0.5",
+    "mongodb-memory-server": "^9.1.4",
+    "prettier": "^2.8.8",
+    "sinon": "^17.0.1"
+  },
+  "ava": {
+    "files": [
+      "tests/**/*.test.ts"
+    ],
+    "extensions": {
+      "ts": "module"
+    },
+    "require": [
+      "./tests/vault.ts"
+    ],
+    "nodeArguments": [
+      "--loader=tsx",
+      "--no-warnings"
+    ]
+  },
+  "prettier": {
+    "overrides": [
+      {
+        "files": "*.yml.j2",
+        "options": {
+          "parser": "yaml"
+        }
+      }
+    ]
+  }
+}

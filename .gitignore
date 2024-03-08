@@ -1,0 +1,12 @@
+# Aiken
+artifacts/
+build/
+docs/
+aiken.lock
+plutus.json
+
+# node
+node_modules
+
+# Scripts
+mynth-account.json

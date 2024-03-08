@@ -1,0 +1,38 @@
+Dockerfile
+docker-compose.*
+.git*
+README.md
+tests
+validators
+plutus.json
+aiken*
+
+# Ignore node_modules, as they will be installed during the build process
+node_modules
+.yarn
+
+# Ignore logs
+*.log
+
+# Ignore any local environment files
+.env
+
+# Ignore any build or distribution folders
+dist
+build
+
+# Ignore any test or coverage folders
+test
+coverage
+
+# Ignore any editor or OS specific files
+*.swp
+*.swo
+*.swn
+*.bak
+*.tmp
+*.sublime*
+*.idea
+*.vscode
+.DS_Store
+Thumbs.db

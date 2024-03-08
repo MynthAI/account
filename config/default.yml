@@ -1,0 +1,25 @@
+blockfrost:
+mongodb:
+  uri:
+preview:
+  mnt: b8794febdb27730a6f0476efe6736fb04fb24cd4f9bf02db150701df4d796e746820546f6b656e
+  genesis:
+    policy: 867457858f032ae3be66963b9736c0dbe2588a4b05e81e2814bcb019
+preprod:
+  mnt: b9ee35f237f85c7f93f6937073e4c69a3cd91d9e40a66104d1d5ac054d796e746820546f6b656e
+  genesis:
+    policy: 196999506f583d7b738851ab11ada8b1aa7e3ca1083abde41ba3ac52
+mainnet:
+  mnt: 43b07d4037f0d75ee10f9863097463fc02ff3c0b8b705ae61d9c75bf4d796e746820546f6b656e
+  genesis:
+    policy: f598947b616806be941c020d0b1796e54c3d90e148052223076ff444
+account-rewards:
+  lovelace-per-tx: 27000000
+  per-tx: 18
+  total-asset: 13698.630136
+  total-multiplier: 13698.630137
+genesis:
+  rare:
+    prefix: 5261726520
+wallets:
+  distributor:

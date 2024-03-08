@@ -1,0 +1,5 @@
+blockfrost: "{{ vault('mynth-account/blockfrost').api_key }}"
+mongodb:
+  uri: "{{ vault('mynth-account/mongodb').uri }}"
+wallets:
+  distributor: "{{ vault('mynth-account/wallets').distributor }}"

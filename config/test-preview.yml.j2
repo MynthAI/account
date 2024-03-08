@@ -1,0 +1,5 @@
+test: true
+blockfrost: "{{ vault('mynth-account/blockfrost').api_key }}"
+wallets:
+  seed1: "{{ vault('mynth-account/wallets').seed1 }}"
+  funding: "{{ vault('mynth-account/wallets').funding }}"

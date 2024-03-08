@@ -1,0 +1,18 @@
+name = "mynth/mynth-account"
+version = "0.0.0"
+description = "Aiken contracts for project 'mynth/mynth-account'"
+
+[repository]
+user = "mynth"
+project = "mynth-account"
+platform = "github"
+
+[[dependencies]]
+name = "aiken-lang/stdlib"
+version = "1.6.0"
+source = "github"
+
+[[dependencies]]
+name = "logicalmechanism/assist"
+version = "main"
+source = "github"
